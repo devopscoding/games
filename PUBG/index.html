@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game PUBG MINI</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2b5876, #4e4376);
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    .game-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .game-image {
+      width: 200px;
+      height: 200px;
+      background-image: URL('pubg.jpg'); /* Replace with your game image */
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .scoreboard {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 10px 20px;
+      width: fit-content;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      font-size: 1.2rem;
+      color: #fff;
+    }
+    .game-button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0px 5px 15px rgba(255, 75, 43, 0.5);
+    }
+    .game-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 7px 20px rgba(255, 75, 43, 0.7);
+    }
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎮 Fun Game</h1>
+  </header>
+
+  <main>
+    <div class="game-container">
+      <!-- Game Image -->
+      <div class="game-image" id="gameImage"></div>
+
+      <!-- Scoreboard -->
+      <div class="scoreboard">
+        Score: <span id="scoreValue">0</span>
+      </div>
+
+      <!-- Play Button -->
+      <button class="game-button" onclick="window.location.href='https://html5.gamemonetize.co/uiks2tutnadwlepnkw9e6qjkb0ibuaao/';" >Play</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Created for MINI Fun Games © 2024</p>
+  </footer>
+
+  <script>
+    // Initialize Telegram Web App
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    // Game Variables
+    let score = 0;
+
+    // Game Logic
+    function playGame() {
+      // Simulate a game turn: Increment the score with random points
+      const randomPoints = Math.floor(Math.random() * 20) + 1; // Random points 1-20
+      score += randomPoints;
+
+      // Update Score Display
+      const scoreValue = document.getElementById("scoreValue");
+      scoreValue.textContent = score;
+
+      // Change Game Image Randomly (simulate dynamic visuals)
+      const gameImage = document.getElementById("gameImage");
+      const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+      gameImage.style.backgroundColor = randomColor;
+
+      // Send the score back to the bot
+      tg.sendData(`Updated Score: ${score}`);
+    }
+  </script>
+</body>
+</html>
