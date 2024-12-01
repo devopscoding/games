@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src='//niphaumeenses.net/vignette.min.js' data-zone='8586395' data-sdk='show_8586395'></script>
   <title>Game PUBG MINI</title>
   <style>
     /* General Reset */
@@ -138,6 +139,13 @@
       // Send the score back to the bot
       tg.sendData(`Updated Score: ${score}`);
     }
+    
+show_8586395().then(() => {
+    // You need to add your user reward function here, which will be executed after the user watches the ad.
+    // For more details, please refer to the detailed instructions.
+    alert('You have seen ad ad!');
+})
+        
   </script>
 </body>
 </html>
